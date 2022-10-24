@@ -40,18 +40,15 @@ class InventoryModel extends Model
         $builder->where('inventory.id', $id);
         $query = $builder->get()->getRowObject();
         return $query;
-        // return $this->db->table('inventory')->select('*')->join('supplier', 'supplier.kode_supplier = inventory.kode_supplier')->where('inventory.id', $id)->get()->getRowArray();
     }
 
     public function cariBarangTable($keyword_barcode)
-    // public function cariBarangTable()
     {
         if (strlen($keyword_barcode) == 0) {
             return $this->db->table('inventory')->select('*')->join('kategori', 'kategori.id=inventory.kategori_id')->get()->getResult();
         } else {
             return $this->db->table('inventory')->select('*')->join('kategori', 'kategori.id=inventory.kategori_id')->like('barcode', $keyword_barcode)->orLike('nama_barang', $keyword_barcode)->orLike('plu', $keyword_barcode)->get()->getResult();
         }
-        // return $this->db->table('inventory')->select('*')->join('kategori', 'kategori.id=inventory.kategori_id')->get()->getResult();
     }
 
     public function cekBarang($barcode)

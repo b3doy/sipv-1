@@ -23,7 +23,6 @@ class PenjualandetailModel extends Model
 
     public function ambilDataDetail($faktur_penjualan)
     {
-        // return $this->db->table('penjualan_detail')->getWhere(['faktur_penjualan_detail' => $faktur_penjualan])->getResultArray();
         return $this->db->table('penjualan_detail')->select('*')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->join('penjualan', 'penjualan.faktur_penjualan = penjualan_detail.faktur_penjualan_detail')->where('faktur_penjualan_detail', $faktur_penjualan)->get()->getResultArray();
     }
 
@@ -33,7 +32,6 @@ class PenjualandetailModel extends Model
     }
     public function setMaxHargaJualDetail()
     {
-        // return $this->db->table('penjualan_detail')->select('*')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->selectSum('sub_total_penjualan_detail')->get()->getRowArray();
         return $this->db->table('penjualan_detail')->selectSum('sub_total_penjualan_detail')->get()->getRowArray();
     }
 

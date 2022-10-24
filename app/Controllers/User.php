@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use Config\Database;
 use Myth\Auth\Authorization\GroupModel;
-use Myth\Auth\Models\UserModel;
 
 class User extends BaseController
 {

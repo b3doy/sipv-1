@@ -37,7 +37,6 @@ class Inventory extends BaseController
             'kat'   => $this->kategoriModel->getKategoriTest(),
             'sat'   => $this->satuanModel->getSatuanTest(),
         ];
-        // dd($data);
         return view('inventory/index', $data);
     }
 
@@ -64,9 +63,6 @@ class Inventory extends BaseController
                 })
 
             })
-            // if (confirm('TAMBAH DATA INVENTORY / BARANG ?') == true) {
-
-            // }
         </script>
         <?php
     }
@@ -87,12 +83,6 @@ class Inventory extends BaseController
                 $row[] = $this->konverter->rupiah($list->harga_jual);
                 $row[] = $this->konverter->angka($list->stok);
                 $row[] = '<a href="' . base_url('inventory/detail/' . $list->id) . '"class="btn btn-sm btn-info" style="color:black"><i class="fa fa-book"></i> Detail</a>';
-                // $row[] = '<button type="button" class="btn btn-circle btn-sm btn-warning edit-modal-btn" style="color:black" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data"><i class="fas fa-edit"></i>
-                // </button> |
-                // <form action=' . base_url('/inventory/delete/' . $list->id) . 'method="POST" class="d-inline">' . csrf_field() . '
-                // <input type="hidden" name="_method" value="DELETE">
-                // <button type="submit" class="btn btn-sm btn-circle btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" onclick=\'javascript:return confirm("Anda Yakin Akan Menghapus Data Ini?")\'><i class="fa fa-trash"></i></button>
-                // </form>';
 
                 $data[] = $row;
             }
@@ -103,47 +93,6 @@ class Inventory extends BaseController
 
     public function save()
     {
-        // Validasi Inputan
-        // if ($this->validate([
-        //     'plu' => [
-        //         'rules'  => 'required|is_unique[inventory.plu]',
-        //         'errors' => [
-        //             'required'  => '{field} harus diisi!',
-        //             'is_unique' => '{field} sudah digunakan!'
-        //         ]
-        //     ],
-        //     'nama_barang' => [
-        //         'rules'  => 'required',
-        //         'errors' => ['required' => '{field} harus diisi!']
-        //     ],
-        //     'barcode' => [
-        //         'rules'  => 'required|is_unique[inventory.barcode]',
-        //         'errors' => [
-        //             'required'  => '{field} harus diisi!',
-        //             'is_unique' => '{field} sudah digunakan!'
-        //         ]
-        //     ],
-        //     'harga_beli' => [
-        //         'rules'  => 'required',
-        //         'errors' => ['required' => '{field} harus diisi!']
-        //     ],
-        //     'margin' => [
-        //         'rules'  => 'required',
-        //         'errors' => ['required' => '{field} harus diisi!']
-        //     ],
-        //     'harga_jual' => [
-        //         'rules'  => 'required',
-        //         'errors' => ['required' => '{field} harus diisi!']
-        //     ],
-        //     'stok' => [
-        //         'rules'  => 'required',
-        //         'errors' => ['required' => '{field} harus diisi!']
-        //     ],
-        // ])) {
-        //     $validation = Services::validation();
-        //     return redirect()->to(base_url('inventory/index'))->withInput();
-        // }
-
         $sql = $this->inventoryModel->save([
             'kategori_id'      => $this->request->getVar('kategori'),
             'plu'           => $this->request->getVar('plu'),

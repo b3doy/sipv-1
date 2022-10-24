@@ -8,7 +8,6 @@ use CodeIgniter\Model;
 class PenjualantempModel extends Model
 {
     protected $table = 'penjualan_temp';
-    // protected $useTimestamps = true;
     protected $allowedFields = [
         'faktur_penjualan_detail', 'barcode_penjualan_detail', 'harga_beli_penjualan_detail', '	harga_jual_penjualan_detail',
         'jumlah_penjualan_detail', 'sub_total_penjualan_detail'
@@ -24,11 +23,6 @@ class PenjualantempModel extends Model
 
     public function getPenjualantempDetail($fakturPenjualan)
     {
-        // $builder = $this->db->table('penjualan_temp');
-        // $builder->select('penjualan_temp.id as temp_id, barcode_penjualan_detail as kode_barcode, harga_jual_penjualan_detail as harga, jumlah_penjualan_detail as jml, sub_total_penjualan_detail as sub_total, nama_barang');
-        // $builder->join('inventory', 'inventory.barcode = penjualan_temp.barcode_penjualan_detail')->where('faktur_penjualan_detail', $faktur_penjualan)->orderBy('penjualan_temp.id');
-        // $builder->get()->getResultArray();
-        // return $builder;
         return $this->db->table('penjualan_temp')->select('penjualan_temp.id as temp_id, barcode_penjualan_detail as kode_barcode, harga_jual_penjualan_detail as harga, jumlah_penjualan_detail as jml, sub_total_penjualan_detail as sub_total, nama_barang')->join('inventory', 'inventory.barcode = penjualan_temp.barcode_penjualan_detail')->where('faktur_penjualan_detail', $fakturPenjualan)->orderBy('penjualan_temp.id')->get()->getResultArray();
     }
 
@@ -44,7 +38,6 @@ class PenjualantempModel extends Model
 
     public function simpanTransaksi($fakturPenjualan)
     {
-        // return $this->table('penjualan_temp')->getWhere('faktur_penjualan_detail', $fakturPenjualan);
         return $this->table('penjualan_temp')->getWhere(['faktur_penjualan_detail' => $fakturPenjualan]);
     }
 

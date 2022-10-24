@@ -39,13 +39,6 @@
                                             <?= session('errors.password') ?>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <label class="custom-control-label"><?= lang('Auth.rememberMe') ?>
-                                                <input type="checkbox" name="remember" class="custom-control-input" <?php if (old('remember')) : ?> checked <?php endif ?>>
-                                            </label>
-                                        </div>
-                                    </div> -->
                                     <?php if ($config->allowRemembering) : ?>
                                         <div class="form-check form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -65,11 +58,6 @@
                                         <a class="small" href="<?= base_url('forgot') ?>"><?= lang('Auth.forgotYourPassword') ?></a>
                                     </div>
                                 <?php endif; ?>
-                                <!-- <?php if ($config->allowRegistration) : ?>
-                                    <div class="text-center">
-                                        <a class="small" href="<?= base_url('register') ?>"><?= lang('Auth.needAnAccount') ?></a>
-                                    </div>
-                                <?php endif; ?> -->
                             </div>
                         </div>
                     </div>

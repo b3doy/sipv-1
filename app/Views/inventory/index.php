@@ -3,12 +3,6 @@
 echo $this->extend('layout/template');
 echo $this->section('page-content');
 
-// foreach ($kategori as $kategori) {
-//     # code...
-// }
-// foreach ($satuan as $satuan) {
-//     # code...
-// }
 
 ?>
 
@@ -137,9 +131,6 @@ echo $this->section('page-content');
     </div>
 </div>
 
-
-<!-- <script src="<?= base_url(); ?>/public/assets/js/jquery-3.0.6.js"></script>
-<script src="<?= base_url(); ?>/public/assets/datatables/datatables.min.js"></script> -->
 
 <script>
     $('#kategori').on('change', function() {

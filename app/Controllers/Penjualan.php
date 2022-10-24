@@ -46,7 +46,6 @@ class Penjualan extends BaseController
     public function detail()
     {
         $fakturPenjualan = $this->request->getVar('fakturPenjualan');
-        // $fakturPenjualan = $this->konverter->fakturJual();
 
         $data = [
             'data_penjualan'    => $this->penjualantempModel->getPenjualantempDetail($fakturPenjualan),
@@ -146,8 +145,6 @@ class Penjualan extends BaseController
     {
         if ($this->request->isAJAX()) {
             $fakturPenjualan = $this->request->getVar('fakturPenjualan');
-            // $penjualanTemp = $this->db->table('penjualan_temp');
-            // $sqltotal = $penjualanTemp->select('SUM(sub_total_penjualan_detail) as total_bayar')->where('faktur_penjualan_detail', $fakturPenjualan)->get();
             $sqltotal = $this->penjualantempModel->totalBayar($fakturPenjualan);
             $rowTotal = $sqltotal->getRowArray();
 
@@ -319,7 +316,6 @@ class Penjualan extends BaseController
             'konventer' => $this->konverter,
             'penjualanDetail' => $this->penjualandetailModel->ambilDataDetail($faktur_penjualan)
         ];
-        // dd($data);
         return view('penjualan/print', $data);
     }
 
@@ -338,7 +334,6 @@ class Penjualan extends BaseController
             'rowMaxJml' => $this->penjualandetailModel->setMaxJmlBarang(),
 
         ];
-        // dd($data);
         return view('penjualan/data_penjualan', $data);
     }
 }

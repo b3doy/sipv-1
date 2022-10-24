@@ -5,7 +5,6 @@ echo $this->section('page-content');
 
 foreach ($penjualan as $penjualan) {
 }
-// date_default_timezone_set('Asia/Jakarta');
 
 ?>
 

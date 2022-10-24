@@ -104,5 +104,4 @@
             }
         })
     });
-    // onclick="window.print()"
 </script>
